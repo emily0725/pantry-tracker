@@ -19,6 +19,10 @@ export default function Home() {
   const [editItemName, setEditItemName] = useState('')
   const [existingQuantity, setExistingQuantity] = useState(0)
 
+  useEffect(() => {
+    document.title = 'Pantry Tracker';
+  }, []);
+
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, 'inventory'))
     const docs = await getDocs(snapshot)
